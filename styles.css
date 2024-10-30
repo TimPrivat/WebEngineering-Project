@@ -41,3 +41,31 @@
     text-align:center
 
 }
+
+.heading {
+
+    text-align: center;
+    background-color: white;
+    border-color: black;
+    border: solid;
+    border-width: 0.6vh;
+    border-radius: 2vh;
+    margin-right: 25%;
+    margin-left: 25%;
+
+
+}
+
+.textBox{
+
+    background-color: white;
+    border: solid;
+    border-width: 0.6vh;
+    border-radius: 2vh;
+    margin-right: 10%;
+    margin-left: 10%;
+    color: black;
+    border-color: black;
+
+
+}
