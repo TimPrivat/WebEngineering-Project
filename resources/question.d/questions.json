@@ -1,0 +1,16 @@
+[
+    {
+        "question": "Which is the highest Mountain in the World?",
+        "wrong1": "Zugspitze",
+        "wrong2": "Kangchenjunga",
+        "wrong3": "Broad Peak",
+        "correct": "Mount Everest"
+    },
+    {
+        "question": "Which is the latest Record by Taylor Swift?",
+        "wrong1": "Back in Black",
+        "wrong2": "Red",
+        "wrong3": "The tortured Poets Department",
+        "correct": "Evermore"
+    }
+]

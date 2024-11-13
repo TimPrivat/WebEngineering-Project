@@ -18,7 +18,7 @@
     background-color: greenyellow;
     margin-right: 30%;
     margin-left: 30%;
-    margin-top: 30%;
+    margin-top: 5%;
     height: 30vh;
 
     border-radius:2vh;
@@ -62,4 +62,39 @@
     border-color: black;
 
 
+}
+
+.centered{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+}
+
+#playButton{
+    color: black;
+}
+
+#questionContainer{
+    background-color: white;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 3%;
+    height: 50vh;
+
+    border-radius:2vh;
+    border-collapse:separate;
+    border:solid black 0.5vh;
+    border-radius:2vh;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+#questionContainer{
+    font-size: 4vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    line-break: anywhere;
 }

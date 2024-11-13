@@ -3,22 +3,24 @@
 <head>
     <title>Web Engineering Project</title>
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="module" src="resources/question.d/scripts.js"></script>
+
 </head>
 
 <body class="background">
 
+    <div id="questionContainer">
+        <p id="questionText">This is gonna be a Question, please answer with the buttons</p>
+    </div>
 
-    <div id="buttonContainer">
-
-
+    <div id="buttonContainer" onclick="askTextQuestion()">
 
         <button type="button" class="answerButton" id="answerButton1"> Button1</button>
         <button type="button" class="answerButton" id="answerButton2"> Button2</button>
 
         <button type="button" class="answerButton" id="answerButton3"> Button3</button>
         <button type="button" class="answerButton" id="answerButton4"> Button4</button>
-
-
 
     </div>
 
