@@ -1,19 +1,48 @@
 var previouslyAsked = [];
 function askTextQuestion() {
+  if (previouslyAsked.length == allQuestions.length) {
+    document.getElementById("questionContainer").innerText =
+      "There are no more Questions: You Win!";
+    return;
+  }
+
   let question = getRandomTextQuestion();
   questionText = question.question;
   console.log(questionText);
+  assignButtonAnswers(question)
   document.getElementById("questionContainer").innerText = questionText;
 }
+
+function shuffleArray(array) {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
+function assignButtonAnswers(question) {
+
+  buttons = Array.from(document.getElementsByClassName("answerButton"));
+  console.log(buttons)
+  buttons=shuffleArray(buttons);
+  buttons[0].innerText=question.correct;
+  buttons[1].innerText=question.wrong1;
+  buttons[2].innerText=question.wrong2;
+  buttons[3].innerText=question.wrong3;
+
+}
+
+
 
 function getRandomTextQuestion() {
   randomIndex = Math.floor(Math.random() * allQuestions.length);
   question = allQuestions[randomIndex];
-  question = null;
+
   if (previouslyAsked.includes(question)) {
     return getRandomTextQuestion();
   }
-  //  previouslyAsked.push(question);
+  previouslyAsked.push(question);
+  console.log(question);
   return question;
 }
 
@@ -34,4 +63,4 @@ var allQuestions = [
   },
 ];
 
-getRandomTextQuestion();
+//getRandomTextQuestion();
