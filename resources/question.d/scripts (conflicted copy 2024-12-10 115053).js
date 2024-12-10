@@ -9,7 +9,7 @@ function askTextQuestion() {
   let question = getRandomTextQuestion();
   questionText = question.question;
   console.log(questionText);
-  assignButtonAnswers(question);
+  assignButtonAnswers(question)
   document.getElementById("questionContainer").innerText = questionText;
 }
 
@@ -21,37 +21,25 @@ function shuffleArray(array) {
 }
 
 function assignButtonAnswers(question) {
+
   buttons = Array.from(document.getElementsByClassName("answerButton"));
-  console.log(buttons);
+  console.log(buttons)
+  buttons=shuffleArray(buttons);
+  buttons[0].innerText=question.correct;
+  buttons[1].innerText=question.wrong1;
+  buttons[2].innerText=question.wrong2;
+  buttons[3].innerText=question.wrong3;
 
-  if (previouslyAsked.length > 1) {
-    buttons[0].removeEventListener("click", correctAnwser);
-    buttons[1].removeEventListener("click", WrongAnwser);
-    buttons[2].removeEventListener("click", WrongAnwser);
-    buttons[3].removeEventListener("click", WrongAnwser);
-  }
-
-  buttons = shuffleArray(buttons);
-  buttons[0].innerText = question.correct;
-  buttons[1].innerText = question.wrong1;
-  buttons[2].innerText = question.wrong2;
-  buttons[3].innerText = question.wrong3;
-
-  buttons[0].addEventListener("click", correctAnwser);
-  buttons[1].addEventListener("click", WrongAnwser);
-  buttons[2].addEventListener("click", WrongAnwser);
-  buttons[3].addEventListener("click", WrongAnwser);
 }
 
-function correctAnwser() {
+function correctAnwser(){
   document.getElementById("questionContainer").innerText =
-    "Correct: You Win 1 Point";
-    console.log("correctAnwser")
+  "Correct: You Win 1 Point";
 }
 
-function WrongAnwser() {
-  document.getElementById("questionContainer").innerText = "Wrong: You Lose";
-  console.log("wrongAnwser")
+function WrongAnwser(){
+  document.getElementById("questionContainer").innerText =
+  "Wrong: You Lose";
 }
 
 function getRandomTextQuestion() {
