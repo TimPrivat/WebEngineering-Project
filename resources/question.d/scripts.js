@@ -1,15 +1,16 @@
 var previouslyAsked = [];
 function askTextQuestion() {
-  if (previouslyAsked.length == allQuestions.length) {
-    document.getElementById("questionContainer").innerText =
-      "There are no more Questions: You Win!";
-    return;
-  }
+  document.getElementById("buttonContainer").removeAttribute("onclick");
 
+
+  if(!checkQuestionsLeft()){
+    return
+  }
   let question = getRandomTextQuestion();
   questionText = question.question;
   console.log(questionText);
   assignButtonAnswers(question);
+  resetButtonColor();
   document.getElementById("questionContainer").innerText = questionText;
 }
 
@@ -24,34 +25,68 @@ function assignButtonAnswers(question) {
   buttons = Array.from(document.getElementsByClassName("answerButton"));
   console.log(buttons);
 
-  if (previouslyAsked.length > 1) {
-    buttons[0].removeEventListener("click", correctAnwser);
-    buttons[1].removeEventListener("click", WrongAnwser);
-    buttons[2].removeEventListener("click", WrongAnwser);
-    buttons[3].removeEventListener("click", WrongAnwser);
-  }
-
   buttons = shuffleArray(buttons);
   buttons[0].innerText = question.correct;
   buttons[1].innerText = question.wrong1;
   buttons[2].innerText = question.wrong2;
   buttons[3].innerText = question.wrong3;
+  removeClickListener();
+  buttons.forEach((button) => {
+    button.addEventListener("click", resolveQuestion);
+  });
 
-  buttons[0].addEventListener("click", correctAnwser);
-  buttons[1].addEventListener("click", WrongAnwser);
-  buttons[2].addEventListener("click", WrongAnwser);
-  buttons[3].addEventListener("click", WrongAnwser);
 }
 
-function correctAnwser() {
+function checkQuestionsLeft() {
+  if (previouslyAsked.length >= allQuestions.length) {
+    document.getElementById("questionContainer").innerText =
+      "There are no more Questions: You Win!";
+    removeClickListener();
+    return false;
+  }
+  return true
+}
+
+function removeClickListener() {
+  if (previouslyAsked.length >= 1) {
+    buttons.forEach((button) => {
+      button.removeEventListener("click", resolveQuestion);
+      button.removeEventListener("click", askTextQuestion);
+    });
+  }
+}
+
+function resetButtonColor(){
+  buttons.forEach((button) => {
+    button.style.background="white";
+  });
+}
+
+function resolveQuestion(event) {
+  removeClickListener();
+  if (event.target.innerText == buttons[0].innerText) {
+    correctAnswer();
+  } else {
+    wrongAnswer();
+  }
+  buttons[0].style.background="#22d10f";
+  buttons[1].style.background="#a62942";
+  buttons[2].style.background="#a62942";
+  buttons[3].style.background="#a62942";
+}
+
+function correctAnswer() {
   document.getElementById("questionContainer").innerText =
     "Correct: You Win 1 Point";
-    console.log("correctAnwser")
+  console.log("correctAnswer");
+  buttons.forEach((button) => {
+    button.addEventListener("click", askTextQuestion);
+  });
 }
 
-function WrongAnwser() {
+function wrongAnswer() {
   document.getElementById("questionContainer").innerText = "Wrong: You Lose";
-  console.log("wrongAnwser")
+  console.log("wrongAnswer");
 }
 
 function getRandomTextQuestion() {
@@ -78,9 +113,7 @@ var allQuestions = [
     question: "Which is the latest Record by Taylor Swift?",
     wrong1: "Back in Black",
     wrong2: "Red",
-    wrong3: "The tortured Poets Department",
-    correct: "Evermore",
+    wrong3: "Evermore",
+    correct: "The tortured Poets Department",
   },
 ];
-
-//getRandomTextQuestion();
