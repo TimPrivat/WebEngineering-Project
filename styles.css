@@ -1,8 +1,21 @@
 .background {
-
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
     background-color: #9342f5;
 }
-
+#JokerHolder{
+    background-color: greenyellow;
+    width: 20%;
+}
+#rewardHolder{
+    background-color: red;
+    width: 20%;
+}
+#questionAndAnswer{
+    width: 60%;
+    background-color: purple;
+}
 .answerButton {
     height: 80%;
     width: 80%;

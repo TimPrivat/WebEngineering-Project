@@ -5,23 +5,39 @@
     <link rel="stylesheet" href="styles.css" />
 
     <script src="resources/question.d/scripts.js"></script>
+    <script>
+        console.log("loaded")
+        document.addEventListener('DOMContentLoaded', function() {
+         buildReward()
+        }, false);
 
+    </script>
 </head>
 
 <body class="background">
+    <div id="JokerHolder">
+        Joker
+    </div>
+    <div id="questionAndAnswer">
 
-    <div id="questionContainer">
-        <p id="questionText">This is gonna be a Question, please answer with the buttons</p>
+        <div id="questionContainer">
+            <p id="questionText">This is gonna be a Question, please answer with the buttons</p>
+        </div>
+
+        <div id="buttonContainer" onclick="askTextQuestion()">
+
+            <button type="button" class="answerButton"> Button1</button>
+            <button type="button" class="answerButton"> Button2</button>
+
+            <button type="button" class="answerButton"> Button3</button>
+            <button type="button" class="answerButton"> Button4</button>
+
+        </div>
+    </div>
+    <div id="rewardHolder">
+
     </div>
 
-    <div id="buttonContainer" onclick="askTextQuestion()">
 
-        <button type="button" class="answerButton"> Button1</button>
-        <button type="button" class="answerButton"> Button2</button>
-
-        <button type="button" class="answerButton"> Button3</button>
-        <button type="button" class="answerButton"> Button4</button>
-
-    </div>
 
 </body>
