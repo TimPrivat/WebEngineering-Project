@@ -1,20 +1,25 @@
 .background {
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
     background-color: #9342f5;
+    margin: 0;
+    padding: 0;
+    height: 100vh
   }
 
 #JokerHolder {
     background-color: greenyellow;
     width: 20%;
+    
 }
 
 
 #rewardHolder {
     background-color: red;
     width: 20%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #questionAndAnswer {
@@ -89,8 +94,6 @@
 #rewardTable {
     width: 100%;
     border-collapse: collapse; 
-    padding: 5px;
-    margin: 0;
     
 }
 

@@ -117,7 +117,6 @@ function colorRewardTable(){
   //https://www.w3schools.com/jsref/coll_table_rows.asp
   rowIndex=12-(previouslyAsked.length-1)
   rewardTableElem = document.getElementById("rewardTable").rows[rowIndex].cells[0].querySelector("p")
-  console.log(rewardTableElem)
   rewardTableElem.style.background="green"
 }
 
