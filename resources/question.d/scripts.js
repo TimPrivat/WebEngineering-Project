@@ -1,5 +1,3 @@
-import parseStringToElement from "../util.js"
-
 var previouslyAsked = [];
 function askTextQuestion() {
   document.getElementById("buttonContainer").removeAttribute("onclick");
@@ -81,9 +79,17 @@ function correctAnswer() {
   document.getElementById("questionContainer").innerText =
     "Correct: You Win 1 Point";
   console.log("correctAnswer");
+  // Change to "nextQuestionListener"
   buttons.forEach((button) => {
     button.addEventListener("click", askTextQuestion);
   });
+
+  // Color Rewardsection
+  //https://www.w3schools.com/jsref/coll_table_rows.asp
+  rowIndex=12-(previouslyAsked.length-1)
+  rewardTableElem = document.getElementById("rewardTable").rows[rowIndex].cells[0].querySelector("p")
+  console.log(rewardTableElem)
+  rewardTableElem.style.background="green"
 }
 
 function wrongAnswer() {
@@ -107,26 +113,32 @@ function getRandomTextQuestion() {
 //Window Operations
 windowBuilt=false;
 function buildReward(){
-
+  console.log("buildReward")
   if (windowBuilt) {
     return;
   }
   windowBuilt=true;
   startPrize=1000000;
+  rewardTableElem= document.getElementById("rewardTable")
+  rewardTableElem.innerHTML="<tr>"
+  margin=1
 
   for (let index = 0; index < 12; index++) {
-    document.getElementById("rewardHolder").innerHTML += `<p class="textBox"> ${startPrize} </p>`;
+
+    rewardTableElem.innerHTML += `<td> <p class="rewardBox" style="margin-right:${margin}%;margin-left:${margin}%"> ${startPrize} </p> </td>`;
     startPrize=startPrize/2;
-    console.log("Test")
+    startPrize=Math.ceil(startPrize/500)*500
+    margin+=3
 
   }
+  rewardTableElem.innerHTML+="</tr>"
 }
 
 //util
 
 // https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
 
-parseStringToElement(elementType,htmlString){
+function parseStringToElement(elementType,htmlString){
   var element = document.createElement(elementType)
   element.innerHTML=htmlString
   return element
