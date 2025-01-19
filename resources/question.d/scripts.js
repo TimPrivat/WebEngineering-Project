@@ -39,9 +39,7 @@ function assignButtonAnswers(question) {
 
 function checkQuestionsLeft() {
   if (previouslyAsked.length >= allQuestions.length) {
-    document.getElementById("questionContainer").innerText =
-      "There are no more Questions: You Win!";
-    removeClickListener();
+    win()
     return false;
   }
   return true
@@ -84,17 +82,22 @@ function correctAnswer() {
     button.addEventListener("click", askTextQuestion);
   });
 
-  // Color Rewardsection
-  //https://www.w3schools.com/jsref/coll_table_rows.asp
-  rowIndex=12-(previouslyAsked.length-1)
-  rewardTableElem = document.getElementById("rewardTable").rows[rowIndex].cells[0].querySelector("p")
-  console.log(rewardTableElem)
-  rewardTableElem.style.background="green"
+  colorRewardTable()
+  if(previouslyAsked.length==12){
+    win()
+  }
 }
 
 function wrongAnswer() {
   document.getElementById("questionContainer").innerText = "Wrong: You Lose";
   console.log("wrongAnswer");
+}
+
+function win(){
+  document.getElementById("questionContainer").innerText =
+      "There are no more Questions: You Win!";
+    removeClickListener();
+  console.log("WIN")
 }
 
 function getRandomTextQuestion() {
@@ -107,6 +110,15 @@ function getRandomTextQuestion() {
   previouslyAsked.push(question);
   console.log(question);
   return question;
+}
+
+function colorRewardTable(){
+    // Color Rewardsection
+  //https://www.w3schools.com/jsref/coll_table_rows.asp
+  rowIndex=12-(previouslyAsked.length-1)
+  rewardTableElem = document.getElementById("rewardTable").rows[rowIndex].cells[0].querySelector("p")
+  console.log(rewardTableElem)
+  rewardTableElem.style.background="green"
 }
 
 
