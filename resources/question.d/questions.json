@@ -1,16 +1,86 @@
 [
-    {
-        "question": "Which is the highest Mountain in the World?",
-        "wrong1": "Zugspitze",
-        "wrong2": "Kangchenjunga",
-        "wrong3": "Broad Peak",
-        "correct": "Mount Everest"
-    },
-    {
-        "question": "Which is the latest Record by Taylor Swift?",
-        "wrong1": "Back in Black",
-        "wrong2": "Red",
-        "wrong3": "The tortured Poets Department",
-        "correct": "Evermore"
-    }
+  {
+    "question": "Which is the highest Mountain in the World?",
+    "wrong1": "Zugspitze",
+    "wrong2": "Kangchenjunga",
+    "wrong3": "Broad Peak",
+    "correct": "Mount Everest"
+  },
+  {
+    "question": "Which is the latest Record by Taylor Swift?",
+    "wrong1": "Back in Black",
+    "wrong2": "Red",
+    "wrong3": "Evermore",
+    "correct": "The tortured Poets Department"
+  },
+  {
+    "question": "Which is the capital city of France?",
+    "wrong1": "Berlin",
+    "wrong2": "Madrid",
+    "wrong3": "Rome",
+    "correct": "Paris"
+  },
+  {
+    "question": "What is the chemical symbol for water?",
+    "wrong1": "CO2",
+    "wrong2": "O2",
+    "wrong3": "H2",
+    "correct": "H2O"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "wrong1": "Vincent van Gogh",
+    "wrong2": "Pablo Picasso",
+    "wrong3": "Claude Monet",
+    "correct": "Leonardo da Vinci"
+  },
+  {
+    "question": "What is the largest planet in our Solar System?",
+    "wrong1": "Mars",
+    "wrong2": "Earth",
+    "wrong3": "Venus",
+    "correct": "Jupiter"
+  },
+  {
+    "question": "What is the currency of Japan?",
+    "wrong1": "Won",
+    "wrong2": "Dollar",
+    "wrong3": "Euro",
+    "correct": "Yen"
+  },
+  {
+    "question": "Which organ in the human body is primarily responsible for detoxification?",
+    "wrong1": "Heart",
+    "wrong2": "Lungs",
+    "wrong3": "Kidneys",
+    "correct": "Liver"
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "wrong1": "Mercury",
+    "wrong2": "Saturn",
+    "wrong3": "Uranus",
+    "correct": "Mars"
+  },
+  {
+    "question": "What is the smallest prime number?",
+    "wrong1": "0",
+    "wrong2": "1",
+    "wrong3": "4",
+    "correct": "2"
+  },
+  {
+    "question": "Which language is primarily spoken in Brazil?",
+    "wrong1": "Spanish",
+    "wrong2": "Italian",
+    "wrong3": "French",
+    "correct": "Portuguese"
+  },
+  {
+    "question": "Who wrote the play 'Romeo and Juliet'?",
+    "wrong1": "Charles Dickens",
+    "wrong2": "George Orwell",
+    "wrong3": "Mark Twain",
+    "correct": "William Shakespeare"
+  }
 ]
