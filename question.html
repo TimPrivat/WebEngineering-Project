@@ -4,12 +4,14 @@
     <title>Web Engineering Project</title>
     <link rel="stylesheet" href="styles.css" />
 
-    <script src="resources/question.d/scripts.js"></script>
-    <script>
+    <script type="module" src="resources/question.d/scripts/gameLogic.js">
+
+    </script>
+
+    <script type="module">
+        import { onWindowLoad  } from './resources/question.d/scripts/windowActions.js';
         console.log("loaded")
-        document.addEventListener('DOMContentLoaded', function() {
-         buildReward()
-        }, false);
+        document.addEventListener('DOMContentLoaded', function () {  onWindowLoad() }, false);
 
     </script>
 </head>
@@ -24,7 +26,7 @@
             <p id="questionText">This is gonna be a Question, please answer with the buttons</p>
         </div>
 
-        <div id="buttonContainer" onclick="askTextQuestion()">
+        <div id="buttonContainer">
 
             <button type="button" class="answerButton"> Button1</button>
             <button type="button" class="answerButton"> Button2</button>
@@ -36,7 +38,7 @@
     </div>
     <div id="rewardHolder">
         <table id="rewardTable">
-            
+
 
         </table>
 
