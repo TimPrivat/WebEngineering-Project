@@ -4,8 +4,8 @@ import {
   removeClickListener,
   resetButtonColor,
   colorRewardTable,
-  getQuestionContainer
-} from "./windowActions.js";
+  getQuestionContainer,
+  colorButtons } from "./windowActions.js";
 
 import { shuffleArray } from "../../util.js";
 
@@ -57,15 +57,14 @@ function checkQuestionsLeft() {
 
 export function resolveQuestion(event) {
   removeClickListener();
+  resetButtonColor()
   if (event.target.innerText == buttons[0].innerText) {
     correctAnswer();
   } else {
     wrongAnswer();
   }
-  buttons[0].style.background = "#22d10f";
-  buttons[1].style.background = "#a62942";
-  buttons[2].style.background = "#a62942";
-  buttons[3].style.background = "#a62942";
+  colorButtons()
+
 }
 
 function correctAnswer() {

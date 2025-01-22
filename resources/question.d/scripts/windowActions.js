@@ -28,6 +28,14 @@ function removeClickListener() {
   }
 }
 
+function colorButtons(){
+    buttons[0].style.background = "#22d10f";
+    buttons[1].style.background = "#a62942";
+    buttons[2].style.background = "#a62942";
+    buttons[3].style.background = "#a62942";
+
+}
+
 function resetButtonColor() {
   buttons.forEach((button) => {
     button.style.background = "white";
@@ -46,7 +54,7 @@ function buildReward() {
   rewardTableElem.innerHTML += "<tr>";
 
   for (let index = 0; index < 12; index++) {
-    rewardTableElem.innerHTML += `<td> <p class="rewardBox" style="margin-right:${margin}%;margin-left:${margin}%"> ${startPrize} </p> </td>`;
+    rewardTableElem.innerHTML += `<td> <p class="rewardBox roundedBorders" style="margin-right:${margin}%;margin-left:${margin}%"> ${startPrize} </p> </td>`;
     startPrize = startPrize / 2;
     startPrize = Math.ceil(startPrize / 500) * 500;
     margin += 3;
@@ -83,6 +91,7 @@ export {
   getAnswerButtons,
   getButtonContainer,
   buildReward,
-  getQuestionContainer
+  getQuestionContainer,
+  colorButtons
 
 };

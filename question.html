@@ -10,30 +10,37 @@
     </script>
 
     <script type="module">
-        import { onWindowLoad  } from './resources/question.d/scripts/windowActions.js';
+        import { onWindowLoad } from './resources/question.d/scripts/windowActions.js';
         console.log("loaded")
-        document.addEventListener('DOMContentLoaded', function () {  onWindowLoad() }, false);
+        document.addEventListener('DOMContentLoaded', function () { onWindowLoad() }, false);
 
     </script>
 </head>
 
 <body class="background">
     <div id="JokerHolder">
-        Joker
+        <div class="joker roundedBorders" id="oracle"></div>
+        <div class="joker roundedBorders" id="50/50">
+            <embed class="jokerSVG" id="fiftyfiftySVG" src="resources/question.d/svgs/5050.svg" type="image/svg+xml">
+        </div>
+        <div class="joker roundedBorders" id="telephone">
+            <embed class="jokerSVG" id="telephoneSVG" src="resources/question.d/svgs/telephone.svg" type="image/svg+xml">
+
+        </div>
     </div>
     <div id="questionAndAnswer">
 
-        <div id="questionContainer">
+        <div id="questionContainer" class="roundedBorders">
             <p id="questionText">This is gonna be a Question, please answer with the buttons</p>
         </div>
 
-        <div id="buttonContainer">
+        <div id="buttonContainer" class="roundedBorders">
 
-            <button type="button" class="answerButton"> Button1</button>
-            <button type="button" class="answerButton"> Button2</button>
+            <button type="button" class="answerButton roundedBorders"> Button1</button>
+            <button type="button" class="answerButton roundedBorders"> Button2</button>
 
-            <button type="button" class="answerButton"> Button3</button>
-            <button type="button" class="answerButton"> Button4</button>
+            <button type="button" class="answerButton roundedBorders"> Button3</button>
+            <button type="button" class="answerButton roundedBorders"> Button4</button>
 
         </div>
     </div>

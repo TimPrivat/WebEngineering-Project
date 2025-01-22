@@ -1,0 +1,25 @@
+<!--https://www.w3schools.com/graphics/svg_animation.asp-->
+
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <circle r="50" cx="50" cy="50" fill="#a5d8ff"></circle>
+    <text x="30" y="56" font-size="25" text-anchor="middle">
+        <animateTransform attributeName="transform" dur="1" type="scale" values="1 1; 2 2; 1 1"
+            begin="mouseover; rotateAnimation.end" repeatCount="1" />
+
+
+        50
+    </text>
+    <text x="50" y="56" font-size="25" text-anchor="middle">
+        <animateTransform attributeName="transform" dur="0.2" type="rotate" from="0 40 56" to="360 40 40"
+            begin="mouseover; rotateAnimation.end" repeatCount="5" />
+        /
+    </text>
+    <text x="70" y="56" font-size="25" text-anchor="middle">
+        <animateTransform attributeName="transform" dur="1" type="scale" values="1 1; 0.5 0.5; 1 1"
+            begin="mouseover; rotateAnimation.end" repeatCount="1" />
+
+
+        50
+    </text>
+
+</svg>
