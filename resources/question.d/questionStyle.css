@@ -31,6 +31,15 @@
 
 }
 
+.answerButton:hover {background-color: lightgray !important;}
+
+.answerButton:active {
+
+    box-shadow: 0 1vh grey;
+    translate: 0vh 0.2vh ;
+}
+
+
 #buttonContainer {
 
     background-color: greenyellow;
