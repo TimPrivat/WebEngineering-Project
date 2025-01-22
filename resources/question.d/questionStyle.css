@@ -1,16 +1,7 @@
-.background {
-    display: flex;
-    align-items: stretch;
-    background-color: #9342f5;
-    margin: 0;
-    padding: 0;
-    height: 100vh
-  }
-
 #JokerHolder {
     background-color: greenyellow;
     width: 20%;
-    
+
 }
 
 
@@ -62,39 +53,10 @@
 
 }
 
-
-.heading {
-
-    text-align: center;
-    background-color: white;
-    border-color: black;
-    border: solid;
-    border-width: 0.6vh;
-    border-radius: 2vh;
-    margin-right: 25%;
-    margin-left: 25%;
-
-
-}
-
-.textBox {
-
-    background-color: white;
-    border: solid;
-    border-width: 0.6vh;
-    border-radius: 2vh;
-    margin-right: 10%;
-    margin-left: 10%;
-    color: black;
-    border-color: black;
-
-
-}
-
 #rewardTable {
     width: 100%;
-    border-collapse: collapse; 
-    
+    border-collapse: collapse;
+
 }
 
 /* https://www.w3schools.com/css/css_align.asp */
@@ -114,17 +76,6 @@
 
     color: black;
     border-color: black;
-}
-
-.centered {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-
-}
-
-#playButton {
-    color: black;
 }
 
 #questionContainer {
@@ -150,10 +101,6 @@
     text-align:center
 }
 
-
-
-
-
 @media (max-width: 999px) {
     .background {
         background-color: #9342f5;
@@ -176,7 +123,7 @@
         margin-right: 3%;
         margin-left: 3%;
         margin-top: 2%;
-        
+
     }
 
     #JokerHolder {
@@ -194,6 +141,6 @@
     #rewardTable {
         width: 100vw;
         direction: rtl;
-   
+
     }
 }
