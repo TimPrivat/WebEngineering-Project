@@ -14,6 +14,7 @@ function askTextQuestion() {
   document.getElementById("questionContainer").innerText = questionText;
 }
 
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffleArray(array) {
   return array
     .map((value) => ({ value, sort: Math.random() }))
