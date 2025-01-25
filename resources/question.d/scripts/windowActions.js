@@ -126,6 +126,11 @@ function get5050cross(){
   console.log("get5050cross")
   return document.getElementById("5050cross")
 }
+function telephoneCross(){
+  console.log("telephoneCross")
+  return document.getElementById("telephoneCross")
+}
+
 
 export {
   removeClickListener,
@@ -139,5 +144,7 @@ export {
   disableElement,
   enableElement,
   getFiftyFiftyJoker,
-  get5050cross
+  get5050cross,
+  telephoneCross,
+  getPhoneJoker
 };

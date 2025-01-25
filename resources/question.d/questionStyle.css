@@ -14,6 +14,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+
     position: relative;
     background-color: #a5d8ff;
     border: solid black 2vh;
@@ -21,24 +22,31 @@
 
     margin-right: 5%;
     margin-left: 5%;
-    height: 20vh;
-    width: 15vw;
-
+    height: 20%;
+    width: 80%;
 
 }
 
 .jokerSVG{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     grid-column: 1;
     grid-row: 1;
+    place-self: center;
+
+
+
+
 
 }
 .jokerCross{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     grid-column: 1;
     grid-row: 1;
+
+    place-self: center;
+
 }
 
 #fiftyfiftySVG{
@@ -184,6 +192,9 @@
        margin-left: 3%;
        margin-top: 5%;
     }
+
+
+
     #buttonContainer {
 
         margin-right: 3%;
@@ -202,6 +213,7 @@
         width: 100%;
         height: 100vh;
         order: 2;
+        margin-top: 5vh;
     }
     #jokerHeading{
         width: 100%;

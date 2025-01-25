@@ -119,8 +119,6 @@ function getRandomTextQuestion() {
   return question;
 }
 
-//util
-
 async function fetchQuestions() {
   console.log("fetchQuestions")
   let questionsRaw = await fetch("resources\\question.d\\questions.json");
