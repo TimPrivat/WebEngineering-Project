@@ -14,11 +14,12 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-
+    justify-content: center;
+    align-items: center;
     position: relative;
     background-color: #a5d8ff;
     border: solid black 2vh;
-    border-radius: 50%;
+    border-radius: 30%;
 
     margin-right: 5%;
     margin-left: 5%;
@@ -44,8 +45,12 @@
     height: 80%;
     grid-column: 1;
     grid-row: 1;
+    position: absolute;
+    left: 10%;
 
-    place-self: center;
+
+
+
 
 }
 
