@@ -4,10 +4,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
+    position: relative;
 
 }
 
 .joker {
+    /* Grid-Hack to make the joker and cross overlap ;)*/
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
     background-color: #a5d8ff;
     border: solid black 2vh;
     border-radius: 50%;
@@ -23,9 +30,24 @@
 .jokerSVG{
     width: 100%;
     height: 100%;
+    grid-column: 1;
+    grid-row: 1;
 
 }
+.jokerCross{
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+}
 
+#fiftyfiftySVG{
+    pointer-events: painted;
+
+}
+#telephone{
+    cursor: pointer;
+}
 
 #telephoneSVG:hover{
     animation-name: shakePhone;
@@ -49,6 +71,8 @@
 
 
 #rewardHolder {
+    display: flex;
+    flex-direction: column;
     background-color: red;
     width: 20%;
     display: flex;
@@ -98,7 +122,7 @@
 #rewardTable {
     width: 100%;
     border-collapse: collapse;
-
+    text-align: center;
 }
 
 #rewardTable th {
@@ -147,11 +171,12 @@
         background-color: #9342f5;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+
     }
     #questionAndAnswer {
         width: 100%;
         order: 1;
+        height: 100%;
     }
     #questionContainer {
        width: 80%;
@@ -167,11 +192,26 @@
 
     }
 
+
     #JokerHolder {
         background-color: greenyellow;
-        height: 20vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
         width: 100%;
+        height: 100vh;
         order: 2;
+    }
+    #jokerHeading{
+        width: 100%;
+        height:  10vh;
+    }
+    .joker {
+        height: 20vh;
+        width: 30%;
+        margin-bottom: 5%;
+
     }
 
     #rewardHolder {
@@ -181,6 +221,7 @@
     }
     #rewardTable {
         width: 100vw;
+        height: 100%;
         direction: rtl;
 
     }

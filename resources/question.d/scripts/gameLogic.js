@@ -5,13 +5,16 @@ import {
   resetButtonColor,
   colorRewardTable,
   getQuestionContainer,
-  colorButtons } from "./windowActions.js";
+  colorButtons,
+  addJokerClickListener,
+  enableElement} from "./windowActions.js";
 
 import { shuffleArray } from "../../util.js";
 
 export var previouslyAsked = [];
 var allQuestions = [];
 export var buttons = [];
+var jokersEnabled=false;
 
 export async function gameRun() {
   allQuestions = await fetchQuestions();
@@ -21,8 +24,14 @@ export async function gameRun() {
 export function askTextQuestion() {
   let buttonContainer = getButtonContainer();
   buttonContainer.removeEventListener("click", askTextQuestion);
+  //aborts if there are no questions left
   if (!checkQuestionsLeft()) {
     return;
+  }
+  //enables Jokers with first Question
+  if (!jokersEnabled){
+    addJokerClickListener();
+    jokersEnabled=true
   }
   let question = getRandomTextQuestion();
   let questionText = question.question;
@@ -34,8 +43,6 @@ export function askTextQuestion() {
 
 function assignButtonAnswers(question) {
   buttons = getAnswerButtons();
-  console.log(buttons);
-
   buttons = shuffleArray(buttons);
   buttons[0].innerText = question.correct;
   buttons[1].innerText = question.wrong1;
@@ -58,11 +65,14 @@ function checkQuestionsLeft() {
 export function resolveQuestion(event) {
   removeClickListener();
   resetButtonColor()
+
   if (event.target.innerText == buttons[0].innerText) {
     correctAnswer();
   } else {
     wrongAnswer();
   }
+  enableElement(buttons[1])
+  enableElement(buttons[2])
   colorButtons()
 
 }

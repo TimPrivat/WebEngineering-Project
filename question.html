@@ -5,33 +5,49 @@
     <link rel="stylesheet" href="globalStyles.css" />
     <link rel="stylesheet" href="resources/question.d/questionStyle.css" />
 
-    <script type="module" src="resources/question.d/scripts/gameLogic.js">
-
-    </script>
+    <script type="module" src="resources/question.d/scripts/gameLogic.js"></script>
+    <script type="module" src="resources/question.d/scripts/jokerLogic.js"></script>
 
     <script type="module">
         import { onWindowLoad } from './resources/question.d/scripts/windowActions.js';
         console.log("loaded")
         document.addEventListener('DOMContentLoaded', function () { onWindowLoad() }, false);
-
     </script>
+
+
+
 </head>
 
 <body class="background">
     <div id="JokerHolder">
+        <h1 id="jokerHeading">Joker</h1>
         <div class="joker roundedBorders" id="oracle"></div>
         <div class="joker roundedBorders" id="50/50">
-            <embed class="jokerSVG" id="fiftyfiftySVG" src="resources/question.d/svgs/5050.svg" type="image/svg+xml">
+            <!-- <embed class="jokerSVG" id="fiftyfiftySVG" src="resources/question.d/svgs/5050.svg" type="image/svg+xml"> -->
+            <svg height="100%" width="100%" class="jokerSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle r="50" cx="50" cy="50" fill="#a5d8ff"></circle>
+                <text x="30" y="56" font-size="25" text-anchor="middle">
+                    <animateTransform attributeName="transform" dur="1" type="scale" values="1 1; 2 2; 1 1"
+                        begin="mouseover; rotateAnimation.end" repeatCount="1" /> 50 </text>
+                <text x="50" y="56" font-size="25" text-anchor="middle">
+                    <animateTransform attributeName="transform" dur="0.2" type="rotate" from="0 40 56" to="360 40 40"
+                        begin="mouseover; rotateAnimation.end" repeatCount="5" /> / </text>
+                <text x="70" y="56" font-size="25" text-anchor="middle">
+                    <animateTransform attributeName="transform" dur="1" type="scale" values="1 1; 0.5 0.5; 1 1"
+                        begin="mouseover; rotateAnimation.end" repeatCount="1" /> 50 </text>
+            </svg>
+            <img class="jokerCross" id="5050cross" src="resources/question.d/svgs/5050_cross.svg" hidden>
         </div>
         <div class="joker roundedBorders" id="telephone">
-            <embed class="jokerSVG" id="telephoneSVG" src="resources/question.d/svgs/telephone.svg" type="image/svg+xml">
-
+            <img class="jokerSVG" id="telephoneSVG" src="resources/question.d/svgs/telephone.svg" >
+            <img class="jokerCross" id="telephoneCross" src="resources/question.d/svgs/5050_cross.svg" hidden>
         </div>
     </div>
     <div id="questionAndAnswer">
 
         <div id="questionContainer" class="roundedBorders">
-            <p id="questionText">This is gonna be a Question, please answer with the buttons</p>
+            <p id="questionText">This is gonna be a Question, please answer with the buttons.<br>
+            The Jokers will be enabled when the Questions start!</p>
         </div>
 
         <div id="buttonContainer" class="roundedBorders">
@@ -45,6 +61,7 @@
         </div>
     </div>
     <div id="rewardHolder">
+        <h1>Price</h1>
         <table id="rewardTable">
 
 
