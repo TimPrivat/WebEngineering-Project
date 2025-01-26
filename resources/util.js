@@ -25,7 +25,7 @@ function convertTimeToString(timeInSeconds){
     return "0"+minutes+":"+seconds
 
 }
-
+//https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(timeInMillis) {
   return new Promise(resolve => setTimeout(resolve, timeInMillis));
 }

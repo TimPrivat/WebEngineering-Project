@@ -2,7 +2,7 @@
     position: relative;
 }
 #JokerHolder {
-    background-color: greenyellow;
+    background-color: #fcc931;
     width: 20%;
     height: 100%;
     display: flex;
@@ -90,7 +90,7 @@
 #rewardHolder {
     display: flex;
     flex-direction: column;
-    background-color: lightskyblue;
+    background-color: #4682b4;
     width: 20%;
     display: flex;
     justify-content: center;
@@ -127,7 +127,7 @@
 
 #buttonContainer {
 
-    background-color: greenyellow;
+    background-color: #87cb28;
     width: 60%;
     margin-top: 5%;
     height: 30vh;
@@ -227,7 +227,7 @@
 
 
     #JokerHolder {
-        background-color: greenyellow;
+        background-color: #87cb28;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
@@ -249,7 +249,7 @@
     }
 
     #rewardHolder {
-        background-color: blue;
+        background-color: #4682b4;
         width: 100%;
         order: 3;
     }

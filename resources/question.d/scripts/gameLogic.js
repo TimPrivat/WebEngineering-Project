@@ -19,6 +19,7 @@ export var buttons = [];
 export var gameOver = false;
 var gameStarted = false;
 export var currentQuestion;
+
 export async function gameRun() {
   allQuestions = await fetchQuestions();
   console.log(allQuestions);

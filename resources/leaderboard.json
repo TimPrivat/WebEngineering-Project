@@ -1,0 +1,142 @@
+[
+    {
+        "playerName": "Darth Vader",
+        "difficulty": "medium",
+        "time_left": "43"
+    },
+    {
+        "playerName": "John Lennon",
+        "difficulty": "easy",
+        "time_left": "76"
+    },
+    {
+        "playerName": "Yoda",
+        "difficulty": "hard",
+        "time_left": "33"
+    },
+    {
+        "playerName": "Jimi Hendrix",
+        "difficulty": "easy",
+        "time_left": "68"
+    },
+    {
+        "playerName": "Leia Organa",
+        "difficulty": "medium",
+        "time_left": "54"
+    },
+    {
+        "playerName": "David Bowie",
+        "difficulty": "hard",
+        "time_left": "22"
+    },
+    {
+        "playerName": "Han Solo",
+        "difficulty": "medium",
+        "time_left": "59"
+    },
+    {
+        "playerName": "Freddie Mercury",
+        "difficulty": "easy",
+        "time_left": "91"
+    },
+    {
+        "playerName": "Obi-Wan Kenobi",
+        "difficulty": "hard",
+        "time_left": "11"
+    },
+    {
+        "playerName": "Prince",
+        "difficulty": "medium",
+        "time_left": "45"
+    },
+    {
+        "playerName": "Chewbacca",
+        "difficulty": "easy",
+        "time_left": "64"
+    },
+    {
+        "playerName": "Aretha Franklin",
+        "difficulty": "medium",
+        "time_left": "58"
+    },
+    {
+        "playerName": "R2-D2",
+        "difficulty": "hard",
+        "time_left": "30"
+    },
+    {
+        "playerName": "Chuck Berry",
+        "difficulty": "easy",
+        "time_left": "74"
+    },
+    {
+        "playerName": "Lando Calrissian",
+        "difficulty": "medium",
+        "time_left": "49"
+    },
+    {
+        "playerName": "Adele",
+        "difficulty": "hard",
+        "time_left": "20"
+    },
+    {
+        "playerName": "Boba Fett",
+        "difficulty": "easy",
+        "time_left": "39"
+    },
+    {
+        "playerName": "Billie Holiday",
+        "difficulty": "medium",
+        "time_left": "63"
+    },
+    {
+        "playerName": "Mace Windu",
+        "difficulty": "hard",
+        "time_left": "25"
+    },
+    {
+        "playerName": "Lady Gaga",
+        "difficulty": "easy",
+        "time_left": "50"
+    },
+    {
+        "playerName": "Darth Maul",
+        "difficulty": "medium",
+        "time_left": "66"
+    },
+    {
+        "playerName": "Janis Joplin",
+        "difficulty": "hard",
+        "time_left": "18"
+    },
+    {
+        "playerName": "Anakin Skywalker",
+        "difficulty": "easy",
+        "time_left": "75"
+    },
+    {
+        "playerName": "Stevie Wonder",
+        "difficulty": "medium",
+        "time_left": "51"
+    },
+    {
+        "playerName": "C-3PO",
+        "difficulty": "hard",
+        "time_left": "29"
+    },
+    {
+        "playerName": "The Weeknd",
+        "difficulty": "easy",
+        "time_left": "80"
+    },
+    {
+        "playerName": "Rogue One",
+        "difficulty": "medium",
+        "time_left": "67"
+    },
+    {
+        "playerName": "Sia",
+        "difficulty": "hard",
+        "time_left": "35"
+    }
+]
