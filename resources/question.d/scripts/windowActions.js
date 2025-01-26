@@ -5,7 +5,7 @@ import {
   buttons,
   resolveQuestion,
 } from "./gameLogic.js";
-import { runFiftyFifty,runPhone } from "./jokerLogic.js";
+import { runFiftyFifty,runPhone,runOracle } from "./jokerLogic.js";
 
 var windowLoaded = false;
 export function onWindowLoad() {
@@ -26,9 +26,11 @@ export function addJokerClickListener() {
   console.log("addJokerClickListener")
   let fiftyfifty = getFiftyFiftyJoker();
   let phone = getPhoneJoker();
+  let oracle=getOracleJoker()
 
   fiftyfifty.addEventListener("click", runFiftyFifty);
   phone.addEventListener("click", runPhone);
+  oracle.addEventListener("click",runOracle)
 }
 
 function removeClickListener() {
@@ -56,7 +58,7 @@ function buildReward() {
   console.log("buildReward");
 
   let buttonContainer = getButtonContainer();
-  let startPrize = 1000000;
+  let startPrize =1000000000;
   let margin = 1;
   let rewardTableElem = document.getElementById("rewardTable");
 
@@ -67,7 +69,7 @@ function buildReward() {
   for (let index = 0; index < 12; index++) {
     rewardTableElem.innerHTML += `<td> <p class="rewardBox roundedBorders" style="margin-right:${margin}%;margin-left:${margin}%"> ${startPrize} </p> </td>`;
     startPrize = startPrize / 2;
-    startPrize = Math.ceil(startPrize / 500) * 500;
+    startPrize = Math.ceil(startPrize / 500000) * 500000;
     margin += 3;
   }
   rewardTableElem.innerHTML += "</tr>";
@@ -119,16 +121,27 @@ function enableElement(elem){
   elem.style.pointerEvents = "auto";
 }
 
-function getAllJokerXs(){
-  return Array.from(document.getElementsByClassName("jokerCross"))
-}
 function get5050cross(){
   console.log("get5050cross")
   return document.getElementById("5050cross")
 }
-function telephoneCross(){
+function getTelephoneCross(){
   console.log("telephoneCross")
   return document.getElementById("telephoneCross")
+}
+function getOracleJoker(){
+  console.log("getOracleJoker")
+  return document.getElementById("oracle")
+}
+
+function getOracleCross(){
+  console.log("getOracleCross")
+  return document.getElementById("oracleCross")
+}
+
+// https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+function openURLinNewTab(url){
+  window.open(url, '_blank').focus();
 }
 
 
@@ -145,6 +158,9 @@ export {
   enableElement,
   getFiftyFiftyJoker,
   get5050cross,
-  telephoneCross,
-  getPhoneJoker
+  getTelephoneCross,
+  getPhoneJoker,
+  openURLinNewTab,
+  getOracleCross,
+  getOracleJoker
 };

@@ -15,7 +15,7 @@ export var previouslyAsked = [];
 var allQuestions = [];
 export var buttons = [];
 var jokersEnabled=false;
-
+export var currentQuestion;
 export async function gameRun() {
   allQuestions = await fetchQuestions();
   console.log(allQuestions);
@@ -34,6 +34,7 @@ export function askTextQuestion() {
     jokersEnabled=true
   }
   let question = getRandomTextQuestion();
+  currentQuestion=question
   let questionText = question.question;
   console.log(questionText);
   assignButtonAnswers(question);

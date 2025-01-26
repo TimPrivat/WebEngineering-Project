@@ -1,0 +1,35 @@
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+
+    <defs>
+        <polygon transform="translate(20 0)" id="star" points="
+            25,15
+            35,25
+            35,35
+            25,45
+            15,45
+            5,35
+            5,25
+            15,15
+            " fill-opacity="0" stroke-width="3" stroke="black">
+            <animateTransform attributeName="transform" dur="1" type="rotate" from="0 35 35" to="360 50 60"
+                begin="mouseenter; rotateAnimation.end" repeatCount="1" />
+
+        </polygon>
+
+    </defs>
+
+    <g id="oracle" transform="translate(50 50)">
+
+        <use href="#star" transform="rotate(0) translate(-25 -15)" />
+        <use href="#star" transform="rotate(45) translate(-25 -15)" />
+        <use href="#star" transform="rotate(90) translate(-25 -15)" />
+        <use href="#star" transform="rotate(135) translate(-25 -15)" />
+        <use href="#star" transform="rotate(180) translate(-25 -15)" />
+        <use href="#star" transform="rotate(225) translate(-25 -15)" />
+        <use href="#star" transform="rotate(270) translate(-25 -15)" />
+        <use href="#star" transform="rotate(315) translate(-25 -15)" />
+
+    </g>
+
+
+</svg>

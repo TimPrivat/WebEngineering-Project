@@ -2,6 +2,8 @@
 
 <head>
     <title>Web Engineering Project</title>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="globalStyles.css" />
     <link rel="stylesheet" href="resources/question.d/questionStyle.css" />
 
@@ -21,9 +23,29 @@
 <body class="background">
     <div id="JokerHolder">
         <h1 id="jokerHeading">Joker</h1>
-        <div class="joker roundedBorders" id="oracle"></div>
+        <div class="joker roundedBorders" id="oracle">
+            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <defs>
+                    <polygon transform="translate(20 0)" id="star" points="
+                        25,15 35,25 35,35 25,45 15,45 5,35 5,25 15,15" fill-opacity="0" stroke-width="3" stroke="black">
+                        <animateTransform attributeName="transform" dur="1" type="rotate" from="0 35 35" to="360 50 60"
+                            begin="mouseenter; rotateAnimation.end" repeatCount="1" />
+                    </polygon>
+                </defs>
+                <g id="oracle" transform="translate(50 50)">
+                    <use href="#star" transform="rotate(0) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(45) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(90) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(135) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(180) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(225) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(270) translate(-25 -15)" />
+                    <use href="#star" transform="rotate(315) translate(-25 -15)" />
+                </g>
+            </svg>
+            <img class="jokerCross" id="oracleCross" src="resources/question.d/svgs/5050_cross.svg" hidden>
+        </div>
         <div class="joker roundedBorders" id="50/50">
-            <!-- <embed class="jokerSVG" id="fiftyfiftySVG" src="resources/question.d/svgs/5050.svg" type="image/svg+xml"> -->
             <svg height="100%" width="100%" class="jokerSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <circle r="50" cx="50" cy="50" fill="#a5d8ff"></circle>
                 <text x="30" y="56" font-size="25" text-anchor="middle">
