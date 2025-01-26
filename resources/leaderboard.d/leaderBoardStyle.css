@@ -1,0 +1,42 @@
+.colordBackground{
+    background-color: #301c41;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+#header{
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+}
+
+.stickyTop{
+    position: sticky;
+    top: 0;
+    display: flex;
+    height: fit-content;
+
+}
+
+.leaderboarddiv{
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    align-self: center;
+    justify-self: center;
+
+}
+
+#leaderboard{
+
+
+}
+
+#leaderboard li {
+
+color: white;
+font-size: 4vh;
+}

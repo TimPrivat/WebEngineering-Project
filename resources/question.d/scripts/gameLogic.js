@@ -107,6 +107,7 @@ function wrongAnswer() {
   questionContainer.innerText = "Wrong: You Lose";
   console.log("wrongAnswer");
   gameOver=true;
+  prepareLeaderboard()
 }
 
 function win() {
@@ -115,6 +116,7 @@ function win() {
   removeClickListener();
   console.log("WIN");
   gameOver=true;
+  prepareLeaderboard()
 }
 
 function timeOut() {
@@ -122,6 +124,7 @@ function timeOut() {
   questionContainer.innerText = "You ran out of Time You lose!";
   removeClickListener();
   console.log("timeOut");
+  prepareLeaderboard()
 }
 
 function getRandomTextQuestion() {
@@ -135,6 +138,20 @@ function getRandomTextQuestion() {
   console.log(question);
   return question;
 }
+
+async function prepareLeaderboard(){
+  sleep(5000).then( () => {
+
+    removeClickListener()
+    getQuestionContainer().innerText="Compare yourself to other contestants"
+    getAnswerButtons().forEach(button => {
+      button.addEventListener("click", () => window.location.href=('../../../leaderboard.html'));
+      button.innerText="Go To Leaderbarod"
+    });
+  })
+
+  }
+
 
 async function fetchQuestions() {
   console.log("fetchQuestions");
@@ -154,3 +171,6 @@ async function timer() {
     timeOut();
   }
 }
+
+
+

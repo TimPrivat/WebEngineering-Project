@@ -56,11 +56,16 @@
     }
     #welcomeText{
         overflow-y: scroll;
+        font-size: 3vw;
     }
     .heading{
         padding-top: 5%;
         padding-bottom: 5%;
         width: 80%;
+        font-size: 4vw;
+    }
+    #playButton{
+        width: 40%;
         font-size: 4vw;
     }
 }

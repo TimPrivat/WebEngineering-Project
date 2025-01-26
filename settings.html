@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Web Engineering Project</title>
+    <link rel="stylesheet" href="globalStyles.css" />
+    <link rel="stylesheet" href="resources/settings.d/settingsStyle.css" />
+
+    <script type="module">
+        import { fetchSessionSettings } from './resources/settings.d/scripts/settings.js';
+        console.log("loaded")
+        let playButton=document.getElementById("playButtonSettings")
+        playButton.addEventListener("click",function (){fetchSessionSettings()})
+    </script>
+
+</head>
+
+
+<body class="background">
+    <div class="centered">
+        <h1 id="heading" class="textBox"> Settings</h1>
+        <h3 id="difficulty" class="textBox subHeading"> Difficulty</h3>
+        <div class="radioHolder">
+            <input type="radio" class="radioSelector" id="easyDifficulty" name="contact" value="easy" />
+            <label  class="radioLabel" for="easyDifficulty">easy</label>
+            <br>
+            <input type="radio" class="radioSelector" id="mediumDifficulty" name="contact" value="medium" checked="checked"  />
+            <label  class="radioLabel" for="mediumDifficulty">medium</label>
+            <br>
+            <input type="radio" class="radioSelector" id="hardDifficulty" name="contact" value="hard" />
+            <label  class="radioLabel" for="hardDifficulty">hard</label>
+        </div>
+        <h3 id="playerNameContainer" class="textBox subHeading">Player Name</h3>
+        <input type="text" id="playerName" name="name" placeholder="Please enter your Player Name"/>
+        <a id="playButtonSettings" class="roundedBorders" href="question.html">Play</a>
+    </div>
+
+
+</body>
