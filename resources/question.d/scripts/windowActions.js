@@ -144,6 +144,12 @@ function openURLinNewTab(url){
   window.open(url, '_blank').focus();
 }
 
+function setTimerValue(value){
+  document.getElementById("timer").innerText=value
+}
+
+
+
 
 export {
   removeClickListener,
@@ -162,5 +168,6 @@ export {
   getPhoneJoker,
   openURLinNewTab,
   getOracleCross,
-  getOracleJoker
+  getOracleJoker,
+  setTimerValue
 };

@@ -90,7 +90,7 @@
 #rewardHolder {
     display: flex;
     flex-direction: column;
-    background-color: red;
+    background-color: lightskyblue;
     width: 20%;
     display: flex;
     justify-content: center;

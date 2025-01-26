@@ -7,14 +7,17 @@ import {
   getQuestionContainer,
   colorButtons,
   addJokerClickListener,
-  enableElement} from "./windowActions.js";
+  enableElement,
+  setTimerValue,
+} from "./windowActions.js";
 
-import { shuffleArray } from "../../util.js";
+import { shuffleArray, convertTimeToString, sleep } from "../../util.js";
 
 export var previouslyAsked = [];
 var allQuestions = [];
 export var buttons = [];
-var jokersEnabled=false;
+export var gameOver = false;
+var gameStarted = false;
 export var currentQuestion;
 export async function gameRun() {
   allQuestions = await fetchQuestions();
@@ -22,24 +25,30 @@ export async function gameRun() {
 }
 
 export function askTextQuestion() {
-  let buttonContainer = getButtonContainer();
-  buttonContainer.removeEventListener("click", askTextQuestion);
   //aborts if there are no questions left
   if (!checkQuestionsLeft()) {
     return;
   }
-  //enables Jokers with first Question
-  if (!jokersEnabled){
-    addJokerClickListener();
-    jokersEnabled=true
+
+  if(!gameStarted){
+    gameStarted=true;
+    onFirstQuestion()
   }
+
   let question = getRandomTextQuestion();
-  currentQuestion=question
+  currentQuestion = question;
   let questionText = question.question;
   console.log(questionText);
   assignButtonAnswers(question);
   resetButtonColor();
   document.getElementById("questionContainer").innerText = questionText;
+}
+
+function onFirstQuestion(){
+    //enables Jokers with first Question
+  addJokerClickListener();
+  timer();
+  getButtonContainer().removeEventListener("click", askTextQuestion);
 }
 
 function assignButtonAnswers(question) {
@@ -65,23 +74,21 @@ function checkQuestionsLeft() {
 
 export function resolveQuestion(event) {
   removeClickListener();
-  resetButtonColor()
+  resetButtonColor();
 
   if (event.target.innerText == buttons[0].innerText) {
     correctAnswer();
   } else {
     wrongAnswer();
   }
-  enableElement(buttons[1])
-  enableElement(buttons[2])
-  colorButtons()
-
+  enableElement(buttons[1]);
+  enableElement(buttons[2]);
+  colorButtons();
 }
 
 function correctAnswer() {
-  let questionContainer=getQuestionContainer()
-  questionContainer.innerText =
-    "Correct: You Win 1 Point";
+  let questionContainer = getQuestionContainer();
+  questionContainer.innerText = "Correct: You Win 1 Point";
   console.log("correctAnswer");
   // Change to "nextQuestionListener"
   buttons.forEach((button) => {
@@ -95,17 +102,25 @@ function correctAnswer() {
 }
 
 function wrongAnswer() {
-  let questionContainer=getQuestionContainer()
+  let questionContainer = getQuestionContainer();
   questionContainer.innerText = "Wrong: You Lose";
   console.log("wrongAnswer");
+  gameOver=true;
 }
 
 function win() {
-  let questionContainer=getQuestionContainer()
-  questionContainer.innerText =
-    "There are no more Questions: You Win!";
+  let questionContainer = getQuestionContainer();
+  questionContainer.innerText = "There are no more Questions: You Win!";
   removeClickListener();
   console.log("WIN");
+  gameOver=true;
+}
+
+function timeOut() {
+  let questionContainer = getQuestionContainer();
+  questionContainer.innerText = "You ran out of Time You lose!";
+  removeClickListener();
+  console.log("timeOut");
 }
 
 function getRandomTextQuestion() {
@@ -121,18 +136,20 @@ function getRandomTextQuestion() {
 }
 
 async function fetchQuestions() {
-  console.log("fetchQuestions")
+  console.log("fetchQuestions");
   let questionsRaw = await fetch("resources\\question.d\\questions.json");
   let questionsJSON = questionsRaw.json();
-  return await questionsJSON
+  return await questionsJSON;
 }
 
-var secondsLeft=600
-async function timer(){
-
-  while (secondsLeft>=1){
-    secondsLeft--;
-    await sleep(1000)
+var secondsLeft = 300;
+async function timer() {
+  while (!gameOver && secondsLeft > 0) {
+    let timeString = convertTimeToString(--secondsLeft);
+    setTimerValue(timeString);
+    await sleep(1000);
   }
-
+  if (secondsLeft <= 0) {
+    timeOut();
+  }
 }
