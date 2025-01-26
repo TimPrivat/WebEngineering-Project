@@ -2,7 +2,7 @@
 
 <head>
     <title>Web Engineering Project</title>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="globalStyles.css" />
     <link rel="stylesheet" href="resources/question.d/questionStyle.css" />
@@ -21,13 +21,15 @@
 </head>
 
 <body class="background">
+
     <div id="JokerHolder">
         <h1 id="jokerHeading">Joker</h1>
         <div class="joker roundedBorders" id="oracle">
             <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <defs>
                     <polygon transform="translate(20 0)" id="star" points="
-                        25,15 35,25 35,35 25,45 15,45 5,35 5,25 15,15" fill-opacity="0" stroke-width="3" stroke="black">
+                        25,15 35,25 35,35 25,45 15,45 5,35 5,25 15,15" fill-opacity="0" stroke-width="3"
+                        stroke="black">
                         <animateTransform attributeName="transform" dur="1" type="rotate" from="0 35 35" to="360 50 60"
                             begin="mouseenter; rotateAnimation.end" repeatCount="1" />
                     </polygon>
@@ -50,13 +52,16 @@
                 <circle r="50" cx="50" cy="50" fill="#a5d8ff"></circle>
                 <text x="30" y="56" font-size="25" text-anchor="middle">
                     <animateTransform attributeName="transform" dur="1" type="scale" values="1 1; 2 2; 1 1"
-                        begin="mouseover; rotateAnimation.end" repeatCount="1" /> 50 </text>
+                        begin="mouseover; rotateAnimation.end" repeatCount="1" /> 50
+                </text>
                 <text x="50" y="56" font-size="25" text-anchor="middle">
                     <animateTransform attributeName="transform" dur="0.2" type="rotate" from="0 40 56" to="360 40 40"
-                        begin="mouseover; rotateAnimation.end" repeatCount="5" /> / </text>
+                        begin="mouseover; rotateAnimation.end" repeatCount="5" /> /
+                </text>
                 <text x="70" y="56" font-size="25" text-anchor="middle">
                     <animateTransform attributeName="transform" dur="1" type="scale" values="1 1; 0.5 0.5; 1 1"
-                        begin="mouseover; rotateAnimation.end" repeatCount="1" /> 50 </text>
+                        begin="mouseover; rotateAnimation.end" repeatCount="1" /> 50
+                </text>
             </svg>
             <img class="jokerCross" id="5050cross" src="resources/question.d/svgs/5050_cross.svg" hidden>
         </div>
@@ -66,10 +71,12 @@
         </div>
     </div>
     <div id="questionAndAnswer">
-
+        <div id="timer" class="textBox">
+            00:00
+        </div>
         <div id="questionContainer" class="roundedBorders">
             <p id="questionText">This is gonna be a Question, please answer with the buttons.<br>
-            The Jokers will be enabled when the Questions start!</p>
+                The Jokers will be enabled when the Questions start!</p>
 
         </div>
 

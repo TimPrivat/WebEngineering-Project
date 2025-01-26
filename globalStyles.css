@@ -7,20 +7,6 @@
     height: 100vh
 }
 
-.heading {
-
-    text-align: center;
-    background-color: white;
-    border-color: black;
-    border: solid;
-    border-width: 0.6vh;
-    border-radius: 2vh;
-    margin-right: 25%;
-    margin-left: 25%;
-
-
-}
-
 .roundedBorders {
     border-radius: 2vh;
     border-collapse: separate;
@@ -30,7 +16,7 @@
 
 .textBox {
 
-    background-color: white;
+    background-color: lightgray;
     border: solid;
     border-width: 0.6vh;
     border-radius: 2vh;
@@ -38,15 +24,15 @@
     margin-left: 10%;
     color: black;
     border-color: black;
+    font-size: 2vw;
+    padding: 2vh;
 }
 
 .centered {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-items: center;
     align-items: center;
 
 }
 
-#playButton {
-    color: black;
-}

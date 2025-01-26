@@ -126,3 +126,13 @@ async function fetchQuestions() {
   let questionsJSON = questionsRaw.json();
   return await questionsJSON
 }
+
+var secondsLeft=600
+async function timer(){
+
+  while (secondsLeft>=1){
+    secondsLeft--;
+    await sleep(1000)
+  }
+
+}
