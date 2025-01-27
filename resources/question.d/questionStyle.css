@@ -204,6 +204,9 @@
         flex-direction: column;
 
     }
+    .answerButton{
+        font-size: fit-content;
+    }
     #questionAndAnswer {
         width: 100%;
         order: 1;
