@@ -30,4 +30,11 @@ function sleep(timeInMillis) {
   return new Promise(resolve => setTimeout(resolve, timeInMillis));
 }
 
-export { sayHello, shuffleArray, parseStringToElement, convertTimeToString,sleep };
+//https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings
+function b64DecodeUnicode(str) {
+  // Going backwards: from bytestream, to percent-encoding, to original string.
+  return decodeURIComponent(atob(str).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+}
+export { sayHello, shuffleArray, parseStringToElement, convertTimeToString,sleep,b64DecodeUnicode };

@@ -11,18 +11,26 @@ import {
   setTimerValue,
 } from "./windowActions.js";
 
-import { shuffleArray, convertTimeToString, sleep } from "../../util.js";
+import {
+  shuffleArray,
+  convertTimeToString,
+  sleep,
+  b64DecodeUnicode,
+} from "../../util.js";
+
+import { getDifficulty } from "../../settings.d/scripts/settings.js";
 
 export var previouslyAsked = [];
 var allQuestions = [];
 export var buttons = [];
 export var gameOver = false;
-var gameWon=false;
+var gameWon = false;
 var gameStarted = false;
 export var currentQuestion;
 
 export async function gameRun() {
-  allQuestions = await fetchQuestions();
+  //allQuestions = await fetchQuestions();
+  allQuestions = await fetchQuestionsAPI();
   console.log(allQuestions);
 }
 
@@ -32,9 +40,9 @@ export function askTextQuestion() {
     return;
   }
 
-  if(!gameStarted){
-    gameStarted=true;
-    onFirstQuestion()
+  if (!gameStarted) {
+    gameStarted = true;
+    onFirstQuestion();
   }
 
   let question = getRandomTextQuestion();
@@ -46,8 +54,8 @@ export function askTextQuestion() {
   document.getElementById("questionContainer").innerText = questionText;
 }
 
-function onFirstQuestion(){
-    //enables Jokers with first Question
+function onFirstQuestion() {
+  //enables Jokers with first Question
   addJokerClickListener();
   timer();
   getButtonContainer().removeEventListener("click", askTextQuestion);
@@ -107,20 +115,19 @@ function wrongAnswer() {
   let questionContainer = getQuestionContainer();
   questionContainer.innerText = "Wrong: You Lose";
   console.log("wrongAnswer");
-  gameOver=true;
-  gameWon=false;
-  prepareLeaderboard()
+  gameOver = true;
+  gameWon = false;
+  prepareLeaderboard();
 }
 
 function win() {
   let questionContainer = getQuestionContainer();
   questionContainer.innerText = "There are no more Questions: You Win!";
   removeClickListener();
-  gameOver=true;
-  gameWon=true;
+  gameOver = true;
+  gameWon = true;
   console.log("WIN");
-  prepareLeaderboard()
-
+  prepareLeaderboard();
 }
 
 function timeOut() {
@@ -128,8 +135,8 @@ function timeOut() {
   questionContainer.innerText = "You ran out of Time You lose!";
   removeClickListener();
   console.log("timeOut");
-  gameWon=false;
-  prepareLeaderboard()
+  gameWon = false;
+  prepareLeaderboard();
 }
 
 function getRandomTextQuestion() {
@@ -144,36 +151,63 @@ function getRandomTextQuestion() {
   return question;
 }
 
-async function prepareLeaderboard(){
-
-  localStorage.setItem("gameWon",gameWon);
-  sleep(5000).then( () => {
-
-    removeClickListener()
-    getQuestionContainer().innerText="Compare yourself to other contestants"
-    getAnswerButtons().forEach(button => {
-      button.addEventListener("click", () => window.location.href=('../../../leaderboard.html'));
-      button.innerText="Go To Leaderbarod"
+async function prepareLeaderboard() {
+  localStorage.setItem("gameWon", gameWon);
+  sleep(5000).then(() => {
+    removeClickListener();
+    getQuestionContainer().innerText = "Compare yourself to other contestants";
+    getAnswerButtons().forEach((button) => {
+      button.addEventListener(
+        "click",
+        () => (window.location.href = "../../../leaderboard.html")
+      );
+      button.innerText = "Go To Leaderbarod";
     });
-  })
+  });
+}
 
-  }
-
-
-async function fetchQuestions() {
+async function fetchQuestionsFile() {
   console.log("fetchQuestions");
   let questionsRaw = await fetch("resources\\question.d\\questions.json");
   let questionsJSON = questionsRaw.json();
+  fetchQuestionsAPI();
   return await questionsJSON;
+}
+
+async function fetchQuestionsAPI() {
+  // uses this api: https://opentdb.com/api_config.php
+  let requestURL = `https://opentdb.com/api.php?amount=12&category=9&difficulty=${getDifficulty()}&type=multiple&&encode=base64`;
+
+  let fetchResponse = await fetch(requestURL);
+  if (fetchResponse.status == "429") {
+    console.error("Too many Requests: Waiting for 6sec");
+    await sleep(6000);
+    return await fetchQuestionsAPI();
+  } else if (fetchResponse.status != 200) {
+    return await fetchQuestionsFile();
+  }
+  let requestResult = await fetchResponse.json();
+  let questionArray = Array.from(requestResult.results);
+  console.log(questionArray);
+
+  return questionArray.map((item) => {
+    return {
+      question: b64DecodeUnicode(item.question),
+      correct: b64DecodeUnicode(item.correct_answer),
+      wrong1: b64DecodeUnicode(item.incorrect_answers[0]),
+      wrong2: b64DecodeUnicode(item.incorrect_answers[1]),
+      wrong3: b64DecodeUnicode(item.incorrect_answers[2]),
+    };
+  });
 }
 
 var secondsLeft = 300;
 
-export function getSecondsLeft(){
+export function getSecondsLeft() {
   return localStorage.getItem("secondsLeft");
 }
 
-export function getGameWon(){
+export function getGameWon() {
   return localStorage.getItem("gameWon");
 }
 
@@ -183,11 +217,8 @@ async function timer() {
     setTimerValue(timeString);
     await sleep(1000);
   }
-  localStorage.setItem("secondsLeft",secondsLeft);
+  localStorage.setItem("secondsLeft", secondsLeft);
   if (secondsLeft <= 0) {
     timeOut();
   }
 }
-
-
-
