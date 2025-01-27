@@ -17,6 +17,7 @@ export var previouslyAsked = [];
 var allQuestions = [];
 export var buttons = [];
 export var gameOver = false;
+var gameWon=false;
 var gameStarted = false;
 export var currentQuestion;
 
@@ -107,6 +108,7 @@ function wrongAnswer() {
   questionContainer.innerText = "Wrong: You Lose";
   console.log("wrongAnswer");
   gameOver=true;
+  gameWon=false;
   prepareLeaderboard()
 }
 
@@ -114,9 +116,11 @@ function win() {
   let questionContainer = getQuestionContainer();
   questionContainer.innerText = "There are no more Questions: You Win!";
   removeClickListener();
-  console.log("WIN");
   gameOver=true;
+  gameWon=true;
+  console.log("WIN");
   prepareLeaderboard()
+
 }
 
 function timeOut() {
@@ -124,6 +128,7 @@ function timeOut() {
   questionContainer.innerText = "You ran out of Time You lose!";
   removeClickListener();
   console.log("timeOut");
+  gameWon=false;
   prepareLeaderboard()
 }
 
@@ -140,6 +145,8 @@ function getRandomTextQuestion() {
 }
 
 async function prepareLeaderboard(){
+
+  localStorage.setItem("gameWon",gameWon);
   sleep(5000).then( () => {
 
     removeClickListener()
@@ -161,12 +168,22 @@ async function fetchQuestions() {
 }
 
 var secondsLeft = 300;
+
+export function getSecondsLeft(){
+  return localStorage.getItem("secondsLeft");
+}
+
+export function getGameWon(){
+  return localStorage.getItem("gameWon");
+}
+
 async function timer() {
   while (!gameOver && secondsLeft > 0) {
     let timeString = convertTimeToString(--secondsLeft);
     setTimerValue(timeString);
     await sleep(1000);
   }
+  localStorage.setItem("secondsLeft",secondsLeft);
   if (secondsLeft <= 0) {
     timeOut();
   }

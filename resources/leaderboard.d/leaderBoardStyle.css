@@ -10,13 +10,18 @@
     background-color: white;
     width: fit-content;
     height: fit-content;
+    align-self: center;
+    font-size: 3vw;
 }
 
 .stickyTop{
     position: sticky;
     top: 0;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     height: fit-content;
+
 
 }
 
@@ -30,13 +35,59 @@
 
 }
 
-#leaderboard{
+#settingsContainer{
+    width: 70vw;;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 1 1;
+    justify-content: center;
+    text-align: center;
+}
+#difficultyPresenter{
+    font-size: 2vw;
+    background-color: red;
+    color: white;
+    grid-column: 2;
+    grid-row: 1;
+    width: fit-content;
 
+
+
+}
+#namePresenter{
+    font-size: 2vw;
+    grid-column: 1;
+    grid-row: 1;
+    width: fit-content;
+    background-color: greenyellow;
 
 }
 
 #leaderboard li {
 
 color: white;
-font-size: 4vh;
+font-size: 2vw;
+}
+
+
+
+@media (max-width: 999px) {
+    #header{
+        font-size: 7vw;
+    }
+
+    #difficultyPresenter{
+        font-size: 7vw;
+        margin-right: 5%;
+    }
+
+    #namePresenter{
+        font-size: 7vw;
+        margin-left: 5%;
+    }
+
+    #leaderboard li{
+        font-size: 5vw;
+    }
+
 }

@@ -1,5 +1,5 @@
-export var difficulty;
-export var playerName;
+var difficulty;
+var playerName;
 
 export function fetchSessionSettings(){
     console.log("fetchSessionSettings")
@@ -16,7 +16,17 @@ export function fetchSessionSettings(){
     playerName =document.getElementById("playerName").value
     console.log("playerName: "+playerName)
 
+
+    localStorage.setItem("difficulty",difficulty)
+    localStorage.setItem("playerName",playerName)
+
 }
 
+export function getPlayerName(){
+    return localStorage.getItem("playerName");
+}
+export function getDifficulty(){
+    return localStorage.getItem("difficulty")
+}
 
 
